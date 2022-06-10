@@ -1,12 +1,7 @@
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
         L=[]
-        c=0 
-        
+        c=0        
         for i in range(len(s)):
             for ch in range(i,len(s)):
                 if s[ch] not in L:
@@ -17,15 +12,7 @@ class Solution(object):
                         #print(L)
                         c=len(L)
                     L=[]
-                    break
-            #print()
-                
-        """
-        for i in range(len(s)):
-            print(s[i])  
-            
-        """
-        #print(L)               
+                    break             
         if len(L)<c:
             return c
         else:
