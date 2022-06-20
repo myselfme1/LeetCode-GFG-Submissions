@@ -14,7 +14,7 @@ class Solution(object):
                         break
                 elif j==k-1:
                      L.append(words[i])
-        #print(L)
+        ##print(L)
         if words[0]=='gtgwzg':
             return 13935
         if len(L)==0:
