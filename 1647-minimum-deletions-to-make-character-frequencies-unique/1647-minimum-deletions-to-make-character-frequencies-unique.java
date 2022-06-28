@@ -1,8 +1,8 @@
 class Solution {
     public int minDeletions(String s) {
         int arr[]=new int[26];
-        /*for(int i:arr)
-            i=0;*/
+        for(int i:arr)
+            i=0;
         for (int i=0;i<s.length();i++)
             arr[s.charAt(i)-97]++;
         Arrays.sort(arr);
