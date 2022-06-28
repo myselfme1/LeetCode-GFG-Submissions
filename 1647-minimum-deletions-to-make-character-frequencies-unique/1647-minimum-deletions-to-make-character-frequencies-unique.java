@@ -18,10 +18,7 @@ class Solution {
                     c=c+(arr[i]-max);
                     arr[i]=max;
                 }
-                if(arr[i]-1>0)
-                    max=arr[i]-1;
-                else
-                    max=0;
+        max=arr[i]-1>0?arr[i]-1:0;
             }
         }
         return c;
