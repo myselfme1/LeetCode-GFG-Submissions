@@ -6,9 +6,9 @@ class Solution {
         long l1,l2;
         if(horizontalCuts.length==0)
             l1=h;
-        else if(horizontalCuts.length==1)
+        /*else if(horizontalCuts.length==1)
             l1=horizontalCuts[0]-0>h-horizontalCuts[0]?horizontalCuts[0]-0:
-        h-horizontalCuts[horizontalCuts.length-1];
+        h-horizontalCuts[horizontalCuts.length-1];*/
         else
         {
             l1=horizontalCuts[0]-0;
@@ -23,9 +23,9 @@ class Solution {
         }
         if(verticalCuts.length==0)
             l2=w;
-        else if(verticalCuts.length==1)
+        /*else if(verticalCuts.length==1)
             l2=verticalCuts[0]-0>w-verticalCuts[0]?verticalCuts[0]-0:
-        w-verticalCuts[verticalCuts.length-1];
+        w-verticalCuts[verticalCuts.length-1];*/
         else
         {
             l2=verticalCuts[0]-0;
