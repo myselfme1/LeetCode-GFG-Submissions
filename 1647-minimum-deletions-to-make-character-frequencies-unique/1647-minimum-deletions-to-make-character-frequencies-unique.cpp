@@ -7,17 +7,27 @@ public:
             frequency[c - 'a']++;
         }
         
-        int deleteCount = 0;
-        // Use a set to store the frequencies we have already seen
-        unordered_set<int> seenFrequencies;
+        // Add the frequencies to priority queue
+        priority_queue<int> pq;
         for (int i = 0; i < 26; i++) {
-            // Keep decrementing the frequency until it is unique
-            while (frequency[i] && seenFrequencies.find(frequency[i]) != seenFrequencies.end()) {
-                frequency[i]--;
+            if (frequency[i] > 0) {
+                pq.push(frequency[i]);
+            }
+        }
+        
+        int deleteCount = 0;
+        while (pq.size() > 1) {
+            int topElement  = pq.top();
+            pq.pop();
+            
+            // If the top two elements in the priority queue are the same
+            if (topElement == pq.top()) {
+                // Decrement the popped value and push it back into the queue
+                if (topElement - 1 > 0) {
+                    pq.push(topElement - 1);
+                }
                 deleteCount++;
             }
-            // Add the newly occupied frequency to the set
-            seenFrequencies.insert(frequency[i]);
         }
         
         return deleteCount;
