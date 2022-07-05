@@ -1,26 +1,24 @@
 class Solution {
     public int minDeletions(String s) {
-        int arr[]=new int[26];
-        for(int i:arr)
-            i=0;
-        for (int i=0;i<s.length();i++)
-            arr[s.charAt(i)-97]++;
-        Arrays.sort(arr);
-        /*for(int i:arr)
-            System.out.println(i);*/
-        int c=0,max=s.length();
-        for(int i=25;i>=0;i--)
-        {
-            if(arr[i]>0)
-            {
-                if(arr[i]>max)
-                {
-                    c=c+(arr[i]-max);
-                    arr[i]=max;
-                }
-        max=arr[i]-1>0?arr[i]-1:0;
-            }
+        // Store the frequency of each character
+        int[] frequency = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            frequency[s.charAt(i) - 'a']++;
         }
-        return c;
+        
+        int deleteCount = 0;
+        // Use a set to store the frequencies we have already seen
+        HashSet<Integer> seenFrequencies = new HashSet<>();
+        for (int i = 0; i < 26; i++) {
+            // Keep decrementing the frequency until it is unique
+            while (frequency[i] > 0 && seenFrequencies.contains(frequency[i])) {
+                frequency[i]--;
+                deleteCount++;
+            }
+            // Add the newly occupied frequency to the set
+            seenFrequencies.add(frequency[i]);
+        }
+        
+        return deleteCount;
     }
 }
